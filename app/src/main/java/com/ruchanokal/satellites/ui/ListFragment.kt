@@ -5,9 +5,11 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -50,6 +52,21 @@ class ListFragment : Fragment() {
         binding!!.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding!!.recyclerView.adapter = ListAdapter(tempSatelliteList)
         binding!!.progressBar.visibility= View.GONE
+
+        backButton()
+    }
+
+    private fun backButton() {
+
+        val callback = object  : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                requireActivity().finish()
+
+            }
+
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(callback)
 
     }
 
