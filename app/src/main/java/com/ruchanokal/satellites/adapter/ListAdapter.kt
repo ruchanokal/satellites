@@ -28,6 +28,9 @@ class ListAdapter(var mySatelliteList : List<SatelliteModel>) : RecyclerView.Ada
         if (activeness){
             holder.binding.activenessImageView.setImageResource(R.drawable.greencircle)
             holder.binding.activenessTextView.setText("Active")
+
+            holder.binding.satelliteTextView.alpha = 1F
+            holder.binding.activenessTextView.alpha = 1F
         } else{
             holder.binding.activenessImageView.setImageResource(R.drawable.redcircle)
             holder.binding.activenessTextView.setText("Passive")
