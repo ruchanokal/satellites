@@ -195,8 +195,8 @@ class DetailFragment : Fragment() {
 
         val callback = object  : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                findNavController().popBackStack()
                 timer.cancel()
+                findNavController().popBackStack()
 
             }
 
